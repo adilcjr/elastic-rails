@@ -1,0 +1,28 @@
+
+version: '2'
+
+services: 
+  db: 
+    container_name: els-db
+    image: postgres:10.5
+    environment: 
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres 
+    ports: ["5432:5432"]
+    expose: ["5432"]
+
+  web:
+    container_name: els-web
+    image: elastic-rails
+    build:
+      context: .
+    command: bash -c "while [ true ]; do sleep 10; done"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+    volumes:
+      - .:/elsrails
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
