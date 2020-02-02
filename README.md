@@ -1,24 +1,12 @@
-# README
+# Elastic Rails Tutorial
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a study about Elastic Search and Ruby on Rails integration.
 
-Things you may want to cover:
+## External Elastic Search
 
-* Ruby version
+I preferred to leave elastic external from the main docker to simulate production environment. 
+The Elastic search docker-compose is on /els directory, it starts 3 Elastic nodes and Kibana.
 
-* System dependencies
+I have an issue about Kibana. It can't find the nodes unless I use the IP machine on config.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run use <code>docker-compose up</code>
